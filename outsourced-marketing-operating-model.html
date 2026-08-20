@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Outsourced marketing operating model - tiers, funding order, and vendor structure.">
+  <meta name="description" content="Outsourced marketing operating model - tiers, funding order, spend, and vendor terms.">
   <meta name="robots" content="noindex, nofollow">
   <meta property="og:title" content="Outsourced Marketing Operating Model">
   <meta property="og:description" content="Which functions we buy, how we buy them, and what has to be true for a line to get funded.">
@@ -324,6 +324,82 @@ code {
 .caveat-flip .f.up { border-color: var(--accent); background: var(--accent-bg); }
 .caveat-flip .f.up .k, .caveat-flip .f.up .v { color: var(--accent); }
 
+/* tables */
+.tbl-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 7px; background: var(--surface); box-shadow: var(--shadow); }
+table { border-collapse: collapse; width: 100%; min-width: 460px; font-size: .92rem; }
+th, td { text-align: left; padding: .68rem .95rem; border-bottom: 1px solid var(--border); }
+thead th {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .7rem; text-transform: uppercase; letter-spacing: .1em;
+  color: var(--ink-3); font-weight: 500; background: var(--surface-2);
+}
+tbody tr:last-child td { border-bottom: 0; }
+td:first-child { color: var(--ink); font-weight: 500; }
+.numc { text-align: right; font-variant-numeric: tabular-nums; font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: .86rem; }
+th.numc { text-align: right; }
+tfoot td { border-top: 2px solid var(--border-2); font-weight: 600; background: var(--surface-2); }
+
+/* stat tiles */
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: .6rem; }
+.kpi {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 7px; padding: .9rem 1rem;
+  display: flex; flex-direction: column; gap: .1rem; box-shadow: var(--shadow);
+}
+.kpi .k {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .68rem; letter-spacing: .09em; text-transform: uppercase; color: var(--ink-3);
+}
+.kpi .v {
+  font-family: Archivo, ui-sans-serif, system-ui, sans-serif;
+  font-size: 1.55rem; font-weight: 700; letter-spacing: -.02em;
+  font-variant-numeric: tabular-nums; line-height: 1.1; color: var(--ink);
+}
+.kpi .n { font-size: .82rem; color: var(--ink-3); }
+.kpi.hi { border-color: var(--accent); }
+.kpi.hi .v, .kpi.hi .k { color: var(--accent); }
+
+/* allocation meter */
+.meter { display: flex; flex-direction: column; gap: .5rem; }
+.meter-track {
+  display: flex; height: 30px; border-radius: 5px; overflow: hidden;
+  background: var(--surface-2); border: 1px solid var(--border);
+}
+.meter-fill { background: var(--accent); border-right: 2px solid var(--bg); }
+.meter-rest { flex: 1; }
+.meter-key { display: flex; flex-wrap: wrap; gap: .35rem 1.4rem; font-size: .84rem; color: var(--ink-2); }
+.meter-key span { display: inline-flex; align-items: center; gap: .45rem; }
+.meter-key i { width: 10px; height: 10px; border-radius: 2px; display: block; }
+.meter-key i.a { background: var(--accent); }
+.meter-key i.b { background: var(--surface-2); border: 1px solid var(--border-2); }
+.meter-key b { font-variant-numeric: tabular-nums; color: var(--ink); font-weight: 600; }
+
+/* warning strip */
+.watch {
+  display: flex; gap: .6rem; align-items: baseline;
+  border-left: 2px solid var(--risk); background: var(--risk-bg);
+  border-radius: 0 4px 4px 0; padding: .5rem .75rem; font-size: .88rem; color: var(--ink-2);
+}
+.watch b {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .65rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--risk); font-weight: 500; white-space: nowrap;
+}
+.vend-meta {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .73rem; color: var(--ink-3);
+}
+
+/* terms */
+.terms { display: grid; gap: .7rem; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); }
+.term {
+  background: var(--surface); border: 1px solid var(--border);
+  border-top: 2px solid var(--accent); border-radius: 0 0 6px 6px;
+  padding: .95rem 1.05rem; display: flex; flex-direction: column; gap: .3rem;
+}
+.term h3 { margin: 0; font-size: .98rem; }
+.term p { font-size: .88rem; color: var(--ink-2); max-width: none; }
+
 @media (max-width: 560px) {
   .tier { grid-template-columns: 1fr; }
   .tier-n { border-right: 0; border-bottom: 1px solid var(--border); flex-direction: row; align-items: baseline; gap: .5rem; padding: .6rem 1.35rem; justify-content: flex-start; }
@@ -495,19 +571,24 @@ code {
 
     <div class="vends">
       <div class="vend">
-        <div class="vend-h"><h3>Paid search — Big Leap</h3><span class="chip chip-a">Contracted</span></div>
+        <div class="vend-h"><h3>Paid search — Big Leap</h3><span class="chip chip-a">Contracted</span><span class="vend-meta">$3,500/mo · running</span></div>
         <p>Scoped to PPC only. Deliberately not bundled with the SEO, content, or CRO services they also sell. One leg, one number. That scope is why they staff it properly.</p>
+        <div class="watch"><b>Watch the ratio</b><span>$3.5k in fees against $4k in media is an 88% management fee. That line either scales or it doesn't survive its own kill clause.</span></div>
       </div>
 
       <div class="vend">
-        <div class="vend-h"><h3>Paid social</h3><span class="chip chip-n">Vendor TBD</span></div>
-        <p>Same tier, separate vendor. Meta is a distinct buying discipline from search — different creative dependency, different optimization loop.</p>
-        <div class="now"><b>Current</b><span>Troy owns the relaunch internally; the Forge creative package is what makes real testing possible on this line.</span></div>
+        <div class="vend-h"><h3>Paid social</h3><span class="chip chip-n">Vendor TBD</span><span class="vend-meta">$6,000/mo · from November</span></div>
+        <p>Same tier, separate vendor. Meta is a distinct buying discipline from search — different creative dependency, different optimization loop. It is also our single largest media line, currently running without a specialist.</p>
+        <p><strong>The profile is specific, and it isn't an agency.</strong> The HVAC Meta specialists all run ads <em>for</em> contractors <em>to</em> homeowners — right vertical, wrong side of the market. The B2B SaaS paid social shops are built for tech buyers, where Meta's weak firmographic data is a real handicap. Our buyer is an HVAC owner on Facebook, which is exactly where Meta is strong, so the vendor choice matters more than usual.</p>
+        <p>The pattern match is someone who has run paid social at a company selling software to SMB trades — ServiceTitan, Housecall Pro, Jobber, Workiz, Podium, Hatch. At our media volume we're a mid-size account, and elite agencies staff their best people elsewhere. A senior independent or a two-to-five-person boutique — where the person who pitches is the person who builds — buys more expertise per dollar than a junior-staffed retainer.</p>
+        <div class="watch"><b>The trade-off</b><span>An independent has no bench. Illness, a bigger client, or a full-time offer and the function stops. The kill clause protects us from bad work, not from disappearance. The mitigation is asset ownership — and it has to be in the SOW, not assumed.</span></div>
+        <div class="now"><b>Timing</b><span>Budgeted from November, allowing four to six weeks to find the right operator rather than hiring the first adequate candidate in September.</span></div>
       </div>
 
       <div class="vend">
-        <div class="vend-h"><h3>Outbound email infrastructure and deliverability — C-17</h3><span class="chip chip-a">Contracted</span></div>
-        <p>Runs their own sending infrastructure, paid per approved and held meeting, no payment for no-shows. Correct shape already: single function, performance-priced. Suppression discipline and domain health monitoring stay with us.</p>
+        <div class="vend-h"><h3>Outbound email infrastructure and deliverability — C-17</h3><span class="chip chip-a">Contracted</span><span class="vend-meta">$13,000/mo · running</span></div>
+        <p>Runs their own sending infrastructure, paid per approved and held meeting, no payment for no-shows. Correct shape: single function, performance-priced. Suppression discipline and domain health monitoring stay with us.</p>
+        <div class="watch"><b>Largest line</b><span>At $13k/mo this is now our largest vendor line and warrants the same 120-day scrutiny as anything else in this tier.</span></div>
       </div>
 
       <div class="vend">
@@ -523,15 +604,15 @@ code {
 
     <div class="vends">
       <div class="vend">
-        <div class="vend-h"><h3>Creative production — Forge</h3><span class="chip chip-a">Contracted</span></div>
-        <p>Paid media can't learn faster than creative can ship. This is a volume function: concepts per week, variants live, kill rate. Not a taste function.</p>
-        <div class="now"><b>Current</b><span>20 videos in 7 days. That cadence is the SLA.</span></div>
+        <div class="vend-h"><h3>Creative production — Forge</h3><span class="chip chip-a">Contracted</span><span class="vend-meta">$11,000/mo · running</span></div>
+        <p>Paid media can't learn faster than creative can ship. This is a volume function: concepts per week, variants live, kill rate. Not a taste function. 20 videos in 7 days — that cadence is the SLA, and at $11k/mo it is load-bearing.</p>
+        <div class="watch"><b>Failure mode</b><span>If cadence slips to one package every six weeks, effective unit cost jumps 50% and nothing else in this document catches it.</span></div>
       </div>
 
       <div class="vend">
         <div class="vend-h"><h3>Event logistics</h3><span class="chip chip-n">Capacity buy</span></div>
         <p>We can tell exactly what a bad event looks like and we're creative enough to run great ones — the logistics are a bandwidth vacuum. Outsourced for capacity, not expertise. We keep the guest list, the message, and the follow-up; they keep the booth, shipping, and run of show.</p>
-        <div class="now"><b>Current</b><span>ICP Elite, San Antonio, Sept 22–23, run internally.</span></div>
+        <div class="now"><b>Next</b><span>ICP Elite (San Antonio, Sept 22–23) is too near to onboard a vendor. Run it internally and hire against a documented gap list for the next one.</span></div>
       </div>
     </div>
   </section>
@@ -542,9 +623,10 @@ code {
 
     <div class="vends">
       <div class="vend">
-        <div class="vend-h"><h3>AI search visibility (GEO)</h3><span class="chip chip-a">Tool + operator, not an agency</span></div>
+        <div class="vend-h"><h3>AI search visibility (GEO)</h3><span class="chip chip-a">Tool + operator, not an agency</span><span class="vend-meta">$3,150 → $6,150/mo · from September</span></div>
         <p>LLMs mostly cite third-party sources rather than vendor sites — review platforms, community, industry publications — and the mix differs by model. The fast path into an answer is being named inside sources the models already trust, not becoming a trusted source ourselves.</p>
-        <p><strong>The engagement:</strong> a citation-tracking platform (Profound or an equivalent at better commercial terms) as owned infrastructure to build the target list from our money prompts, plus a placement consultant on a defined engagement, measured in inclusions landed in target-list sources. This is mention placement, not link building — a link from a cited page does nothing if we aren't named in the passage being read.</p>
+        <p><strong>The engagement:</strong> a citation-tracking platform as owned infrastructure to build the target list from our money prompts, plus a placement operator on a defined engagement, measured in inclusions landed in target-list sources. This is mention placement, not link building — a link from a cited page does nothing if we aren't named in the passage being read. Paid and advertorial placements are the wrong instrument; earned coverage carries the overwhelming majority of AI citations.</p>
+        <p>Kicks off September. Tracking runs about $150/mo — Profound's commercial terms don't fit our stage, and several equivalents publish self-serve pricing well under it.</p>
         <div class="now"><b>Measured by</b><span>Citation share on our money prompts, tracked weekly. Rare for this function to produce a number a non-expert can read, which matters given everything above turns on detectability.</span></div>
       </div>
 
@@ -580,6 +662,76 @@ code {
       <div class="vend-h"><h3>High-volume original thought leadership</h3><span class="chip chip-k">No vendor shape</span></div>
       <p>The shops producing content at a ceiling we can't match internally price above what makes sense at our stage. The shops whose pipeline <em>is</em> the moat won't sell us the pipeline. There's no available vendor shape here — which is why the GEO line is scoped as placement into already-cited sources rather than production.</p>
       <p>Revisit when either the budget or the internal capacity changes.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>What it costs — next six months</h2>
+    <p>Against a $100k monthly envelope.</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Line</th><th class="numc">Monthly</th><th>Start</th></tr></thead>
+        <tbody>
+          <tr><td>Meta ad spend</td><td class="numc">$35,000</td><td><span class="chip chip-n">Running</span></td></tr>
+          <tr><td>Paid search ad spend</td><td class="numc">$4,000</td><td><span class="chip chip-n">Running</span></td></tr>
+          <tr><td>Outbound — C-17</td><td class="numc">$13,000</td><td><span class="chip chip-n">Running</span></td></tr>
+          <tr><td>Creative — Forge</td><td class="numc">$11,000</td><td><span class="chip chip-n">Running</span></td></tr>
+          <tr><td>Paid search retainer — Big Leap</td><td class="numc">$3,500</td><td><span class="chip chip-n">Running</span></td></tr>
+          <tr><td>Paid social operator</td><td class="numc">$6,000</td><td><span class="chip chip-a">November</span></td></tr>
+          <tr><td>AI search visibility — tool + placement</td><td class="numc">$3,150 → $6,150</td><td><span class="chip chip-a">September</span></td></tr>
+        </tbody>
+        <tfoot>
+          <tr><td>Average monthly, Sept–Feb</td><td class="numc">$75,650</td><td>76% of envelope</td></tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi"><span class="k">Sept–Oct run rate</span><span class="v">$69,650</span><span class="n">per month</span></div>
+      <div class="kpi"><span class="k">Nov–Feb run rate</span><span class="v">$78,650</span><span class="n">paid social + full GEO</span></div>
+      <div class="kpi hi"><span class="k">Unallocated</span><span class="v">$24,350</span><span class="n">per month, held in reserve</span></div>
+    </div>
+
+    <div class="meter">
+      <div class="meter-track">
+        <div class="meter-fill" style="width:75.65%"></div>
+        <div class="meter-rest"></div>
+      </div>
+      <div class="meter-key">
+        <span><i class="a"></i>Allocated <b>$75,650</b> · 76%</span>
+        <span><i class="b"></i>Headroom <b>$24,350</b> · 24%</span>
+        <span style="color:var(--ink-3)">of a $100,000 monthly envelope</span>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="eyebrow">Media is 52% of spend</div>
+      <p>The whole vendor layer — search, social, outbound, creative, placement — is roughly $37k/month against $39k in media. <strong>This was never a "marketing costs too much" problem.</strong> The question is whether $39k/month of media is being bought by people who know what they're doing.</p>
+    </div>
+
+    <p><strong>The remaining headroom funds one Tier 3 project</strong>, not several. Don't allocate it now. It's what makes the funding order credible rather than theoretical.</p>
+  </section>
+
+  <section>
+    <h2>Terms that make the clauses real</h2>
+    <div class="terms">
+      <div class="term">
+        <h3>Asset ownership</h3>
+        <p>Short kill clauses only work if leaving is cheap. We hold the ad accounts, sending domains, CAPI configuration, creative source files, and placement relationships. If a vendor holds any of it, the kill clause is decorative. This is the operational form of "the scoreboard stays ours."</p>
+      </div>
+      <div class="term">
+        <h3>Clock start dates</h3>
+        <p>"No commitment past 120 days" is a rule with no dates attached. Every vendor gets a first review date recorded at signature, or the discipline never triggers.</p>
+      </div>
+      <div class="term">
+        <h3>Reallocation</h3>
+        <p>If a line is killed at review, the money returns to reserve — not automatically to the next line in the order. Otherwise the funding order gets re-decided in the moment by whoever is in the room.</p>
+      </div>
+      <div class="term">
+        <h3>Baselines</h3>
+        <p>Every line is bought against a number we can read. Those numbers get recorded before a vendor starts: current CPQM, cost per held meeting, citation share, site conversion rate. Without a baseline, the 120-day review has nothing to review.</p>
+      </div>
     </div>
   </section>
 
