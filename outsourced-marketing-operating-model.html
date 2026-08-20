@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Outsourced marketing operating model - tiers, funding order, and vendor structure.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="Outsourced Marketing Operating Model">
+  <meta property="og:description" content="Which functions we buy, how we buy them, and what has to be true for a line to get funded.">
+  <meta property="og:type" content="article">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A7%AD%3C/text%3E%3C/svg%3E">
+<style>
+  body { margin: 0; }
+  img, svg, video, canvas { max-width: 100%; }
+</style>
+<title>Outsourced Marketing Operating Model</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+
+<style>
+:root {
+  --bg:        #FBFAF8;
+  --surface:   #FFFFFF;
+  --surface-2: #F2EFEA;
+  --border:    #E3DED5;
+  --border-2:  #CFC7BA;
+  --ink:       #1C1917;
+  --ink-2:     #57524B;
+  --ink-3:     #8B8277;
+  --accent:    #A9541B;
+  --accent-2:  #C2733A;
+  --accent-bg: #F7EEE5;
+  --live:      #1B6E3C;
+  --live-bg:   #E7F1EA;
+  --risk:      #A31B26;
+  --risk-bg:   #F6E8E9;
+  --shadow:    0 1px 2px rgba(28,25,23,.05), 0 8px 24px -16px rgba(28,25,23,.22);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:        #16130F;
+    --surface:   #1D1915;
+    --surface-2: #262019;
+    --border:    #342C24;
+    --border-2:  #4A4036;
+    --ink:       #F3EEE6;
+    --ink-2:     #B6ACA0;
+    --ink-3:     #877D71;
+    --accent:    #E0954F;
+    --accent-2:  #C98040;
+    --accent-bg: #2A2018;
+    --live:      #5FC183;
+    --live-bg:   #17281D;
+    --risk:      #E8858C;
+    --risk-bg:   #2B1A1B;
+    --shadow:    0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"] {
+  --bg:        #16130F;
+  --surface:   #1D1915;
+  --surface-2: #262019;
+  --border:    #342C24;
+  --border-2:  #4A4036;
+  --ink:       #F3EEE6;
+  --ink-2:     #B6ACA0;
+  --ink-3:     #877D71;
+  --accent:    #E0954F;
+  --accent-2:  #C98040;
+  --accent-bg: #2A2018;
+  --live:      #5FC183;
+  --live-bg:   #17281D;
+  --risk:      #E8858C;
+  --risk-bg:   #2B1A1B;
+  --shadow:    0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.7);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 16.5px;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+
+.doc {
+  max-width: 950px;
+  margin-inline: auto;
+  padding: clamp(2.5rem, 6vw, 5rem) clamp(1.15rem, 4vw, 2.5rem) 6rem;
+  display: flex; flex-direction: column; gap: 3.25rem;
+}
+
+p, section > ul li { max-width: 68ch; }
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+h1, h2, h3 {
+  font-family: Archivo, ui-sans-serif, system-ui, sans-serif;
+  text-wrap: balance; letter-spacing: -0.02em; line-height: 1.14;
+}
+
+.eyebrow {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .715rem; font-weight: 500;
+  letter-spacing: .16em; text-transform: uppercase;
+  color: var(--accent);
+}
+
+.mast { display: flex; flex-direction: column; gap: 1.15rem; }
+.mast h1 { font-size: clamp(2.4rem, 6.5vw, 4rem); font-weight: 700; margin: 0; }
+.mast .stand {
+  font-size: clamp(1.05rem, 2.3vw, 1.26rem);
+  color: var(--ink-2); max-width: 58ch; line-height: 1.5;
+}
+.mast .stand strong { color: var(--ink); font-weight: 600; }
+.mast-meta {
+  display: flex; flex-wrap: wrap; gap: .5rem 1.5rem;
+  padding-top: 1.15rem; border-top: 1px solid var(--border);
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .78rem; color: var(--ink-3);
+}
+.mast-meta b { color: var(--ink-2); font-weight: 500; }
+
+section { display: flex; flex-direction: column; gap: 1.1rem; }
+section > h2 {
+  font-size: clamp(1.4rem, 3vw, 1.85rem); font-weight: 600; margin: 0;
+  padding-bottom: .7rem; border-bottom: 2px solid var(--ink);
+}
+h3 { font-size: 1.08rem; font-weight: 600; margin: .5rem 0 0; }
+p { margin: 0; }
+ul { margin: 0; padding-left: 1.15rem; display: flex; flex-direction: column; gap: .4rem; }
+ul li::marker { color: var(--accent); }
+
+code {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .88em; background: var(--surface-2);
+  border: 1px solid var(--border); padding: .08em .34em; border-radius: 3px;
+}
+
+/* the two diagnostic questions */
+.qs { display: flex; flex-direction: column; gap: .9rem; counter-reset: q; }
+.q {
+  display: grid; grid-template-columns: 2.2rem minmax(0,1fr); gap: .2rem 1rem;
+  background: var(--surface); border: 1px solid var(--border);
+  border-left: 3px solid var(--accent); border-radius: 0 7px 7px 0;
+  padding: 1.15rem 1.3rem; box-shadow: var(--shadow);
+}
+.q::before {
+  counter-increment: q; content: counter(q);
+  font-family: Archivo, sans-serif; font-size: 1.5rem; font-weight: 700;
+  color: var(--accent); line-height: 1; padding-top: .15rem;
+}
+.q-ask {
+  font-family: Archivo, ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(1.02rem, 2.2vw, 1.22rem); font-weight: 600;
+  line-height: 1.32; letter-spacing: -.015em; color: var(--ink); max-width: 44ch;
+}
+.q-body { grid-column: 2; display: flex; flex-direction: column; gap: .55rem; margin-top: .55rem; }
+.q-body p { font-size: .95rem; color: var(--ink-2); max-width: 62ch; }
+.q-take {
+  grid-column: 2; margin-top: .7rem; padding-top: .65rem;
+  border-top: 1px dashed var(--border-2);
+  font-size: .9rem; color: var(--ink-2);
+}
+.q-take b {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .68rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--accent); font-weight: 500; display: block; margin-bottom: .18rem;
+}
+
+/* tiers */
+.tiers { display: flex; flex-direction: column; gap: 1rem; }
+.tier {
+  display: grid; grid-template-columns: 5.2rem minmax(0,1fr);
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 7px; overflow: hidden; box-shadow: var(--shadow);
+}
+.tier-n {
+  background: var(--surface-2); border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+  padding-top: 1.15rem; gap: .1rem;
+}
+.tier-n .lab {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .62rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3);
+}
+.tier-n .no {
+  font-family: Archivo, sans-serif; font-size: 2rem; font-weight: 700;
+  color: var(--accent); line-height: 1;
+}
+.tier-body { padding: 1.2rem 1.35rem; display: flex; flex-direction: column; gap: .7rem; }
+.tier-body h3 { margin: 0; font-size: 1.18rem; }
+.tier-body p { font-size: .95rem; }
+.tier-terms {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .73rem; color: var(--ink-3);
+  border-top: 1px dashed var(--border-2); padding-top: .6rem;
+}
+
+/* funding ladder */
+.ladder { display: flex; flex-direction: column; gap: .7rem; }
+.band {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 7px; overflow: hidden; box-shadow: var(--shadow);
+}
+.band-h {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: .4rem .8rem;
+  padding: .8rem 1.15rem; border-bottom: 1px solid var(--border);
+  background: var(--surface-2);
+}
+.band-h .nm { font-family: Archivo, sans-serif; font-weight: 600; font-size: 1.02rem; }
+.band-h .when {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .72rem; color: var(--ink-3);
+}
+.band.core { border-color: var(--accent); }
+.band.core .band-h { background: var(--accent-bg); border-bottom-color: var(--accent); }
+.band.core .band-h .nm, .band.core .band-h .when { color: var(--accent); }
+.band-b { padding: .95rem 1.15rem; display: flex; flex-direction: column; gap: .6rem; }
+.band-b .row { font-size: .93rem; color: var(--ink-2); max-width: 66ch; }
+.band-b .row b { color: var(--ink); font-weight: 600; }
+.band.def .band-b { display: flex; flex-direction: row; flex-wrap: wrap; gap: .4rem; }
+.band.def .row {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .78rem; color: var(--ink-3);
+  border: 1px solid var(--border); border-radius: 4px; padding: .3rem .6rem;
+}
+
+/* vendor entries */
+.vends { display: flex; flex-direction: column; gap: .7rem; }
+.vend {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 7px; padding: 1.05rem 1.2rem;
+  display: flex; flex-direction: column; gap: .5rem; box-shadow: var(--shadow);
+}
+.vend-h { display: flex; flex-wrap: wrap; align-items: baseline; gap: .4rem .7rem; }
+.vend-h h3 { margin: 0; font-size: 1.04rem; }
+.vend p { font-size: .93rem; color: var(--ink-2); max-width: 64ch; }
+.now {
+  display: flex; gap: .6rem; align-items: baseline;
+  border-left: 2px solid var(--live); background: var(--live-bg);
+  border-radius: 0 4px 4px 0; padding: .5rem .75rem; font-size: .88rem; color: var(--ink-2);
+}
+.now b {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .65rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--live); font-weight: 500; white-space: nowrap;
+}
+
+.chip {
+  display: inline-block;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .67rem; font-weight: 500; letter-spacing: .07em; text-transform: uppercase;
+  padding: .16rem .48rem; border-radius: 3px; white-space: nowrap;
+}
+.chip-a { background: var(--accent-bg); color: var(--accent); }
+.chip-n { background: var(--surface-2); color: var(--ink-3); }
+.chip-k { background: var(--risk-bg); color: var(--risk); }
+
+.callout {
+  background: var(--accent-bg); border-left: 3px solid var(--accent);
+  border-radius: 0 5px 5px 0; padding: 1.15rem 1.3rem;
+  display: flex; flex-direction: column; gap: .55rem;
+}
+.callout .eyebrow { color: var(--accent-2); }
+.callout p { max-width: 64ch; }
+.callout p.hero {
+  font-family: Archivo, ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(1.1rem, 2.6vw, 1.45rem); font-weight: 600;
+  line-height: 1.32; letter-spacing: -.015em; color: var(--ink); max-width: 36ch;
+}
+
+.closer {
+  background: var(--surface-2); border: 1px solid var(--border);
+  border-radius: 7px; padding: 1.6rem 1.7rem;
+  display: flex; flex-direction: column; gap: .7rem;
+}
+.closer .big {
+  font-family: Archivo, ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(1.12rem, 2.6vw, 1.45rem); font-weight: 600;
+  line-height: 1.34; letter-spacing: -.015em; max-width: 42ch;
+}
+
+@media (max-width: 560px) {
+  .tier { grid-template-columns: 1fr; }
+  .tier-n { border-right: 0; border-bottom: 1px solid var(--border); flex-direction: row; align-items: baseline; gap: .5rem; padding: .6rem 1.35rem; justify-content: flex-start; }
+  .q { grid-template-columns: 1fr; }
+  .q::before { grid-column: 1; }
+  .q-body, .q-take { grid-column: 1; }
+}
+</style>
+</head>
+<body>
+<div class="doc">
+
+  <header class="mast">
+    <div class="eyebrow">Operating Model · Marketing</div>
+    <h1>Outsourced Marketing</h1>
+    <p class="stand">Which functions we buy, how we buy them, and what has to be true for a line to get funded — <strong>split by what mediocre execution actually costs us.</strong></p>
+    <div class="mast-meta">
+      <span><b>Author</b> Blake Williams</span>
+      <span><b>Date</b> 20 Aug 2026</span>
+      <span><b>Scope</b> Vendor strategy &amp; funding order</span>
+    </div>
+  </header>
+
+  <section>
+    <h2>How I made the calls below</h2>
+    <p>From a what-the-business-needs perspective, I split marketing activity into two groups: work that punishes slow, moderate, or unfocused execution harshly — and work that can be done slowly and reasonably well without deep expertise.</p>
+    <p>Two questions get us there.</p>
+
+    <div class="qs">
+      <div class="q">
+        <div class="q-ask">What does 90 days of mediocre, slow execution cost us — and does it actually extend time to value capture?</div>
+        <div class="q-body">
+          <p>This isn't about whether an activity matters. It's about what accrues while below-average or overwhelmed execution is driving the outcome. SEO takes a year regardless; a mediocre quarter there is "meh." Paid ads feed the business — one weak month and the entire company feels it.</p>
+        </div>
+        <div class="q-take"><b>What it isolates</b>The activities where we know we want focused experts dialing us in.</div>
+      </div>
+
+      <div class="q">
+        <div class="q-ask">Can we tell it's clearly broken as non-experts — and do we have the capacity to fix it?</div>
+        <div class="q-body">
+          <p>Both halves matter. Nearly anyone can tell when a landing page is garbage, build three versions, test them in parallel, and optimize. That's detectable and fixable in-house.</p>
+          <p>Events are the counterexample. We can tell exactly what bad looks like and we're creative enough to put on great ones — but the logistics of executing them well are a monster that swallows the bandwidth of a small team.</p>
+        </div>
+        <div class="q-take"><b>What it isolates</b>Detectable, not fixable at our current capacity. That's an outsource for a completely different reason than paid media is.</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Three tiers</h2>
+    <div class="tiers">
+
+      <article class="tier">
+        <div class="tier-n"><span class="lab">Tier</span><span class="no">1</span></div>
+        <div class="tier-body">
+          <h3>Buy the best, buy it fast</h3>
+          <p>Daily burn, palpable failure. The gap between a strong vendor and an adequate in-house team is the entire budget.</p>
+          <div class="tier-terms">Performance-based SLA · monthly review · short kill clause · no commitment past 120 days</div>
+        </div>
+      </article>
+
+      <article class="tier">
+        <div class="tier-n"><span class="lab">Tier</span><span class="no">2</span></div>
+        <div class="tier-body">
+          <h3>Buy capacity, not genius</h3>
+          <p>The constraint is throughput, not brilliance. Quality floor matters; ceiling doesn't.</p>
+          <div class="tier-terms">Priced per unit · measured on volume shipped · easily swapped · no commitment past 180 days</div>
+        </div>
+      </article>
+
+      <article class="tier">
+        <div class="tier-n"><span class="lab">Tier</span><span class="no">3</span></div>
+        <div class="tier-body">
+          <h3>Call in expertise for a defined purpose</h3>
+          <p>Episodic work with long payback or a defined endpoint. We want genuine experts, on an engagement rather than a retainer — they raise the ceiling, we share the execution burden, the capability stays with us.</p>
+          <div class="tier-terms">Project fees, not retainers</div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>One function, one vendor, one number</h2>
+    <p>Each vendor owns a single leg of the engagement. Not because coordination is easier that way — it isn't — but because it's the only structure where failure is attributable. A vendor holding three functions can always explain a bad number with another function's performance, and we have no way to test the claim. <strong>A vendor holding one function has one number and no alibi.</strong></p>
+
+    <div class="callout">
+      <div class="eyebrow">The second-order effect matters more</div>
+      <p>Agencies staff to risk. A sprawling multi-function retainer gets a senior lead over junior execution, because revenue is diversified across lines and no single miss threatens the account.</p>
+      <p>A single-leg engagement on a 120-day clock has every dollar riding on one visible number. <strong>That's the account they put their best people on.</strong></p>
+    </div>
+
+    <p>Pair that with the time bound and renewal depends entirely on a number we can see, rather than on the relationship.</p>
+    <p>This is also the direct answer to the finger-pointing concern: finger-pointing requires shared ownership of an outcome. When each vendor owns one leg and one number, there's nothing to point at. Coordination overhead is real and we absorb it internally — a staffing question with a known answer, not a structural risk.</p>
+  </section>
+
+  <section>
+    <h2>We don't have to do all of it</h2>
+    <p>The tiers describe <em>how</em> to buy each function. They don't say <em>which</em> ones to buy. Those are separate decisions, and conflating them is how an outsourcing budget arrives at a number nobody can defend.</p>
+    <p>Most of the impact sits under a small number of surfaces. Past those, cost per unit stays flat while return falls off — diminishing returns at non-diminishing spend.</p>
+
+    <div class="callout">
+      <div class="eyebrow">The failure mode</div>
+      <p class="hero">Not picking a bad vendor. Funding eight competent lines instead of three excellent ones, and watching no single number move.</p>
+    </div>
+
+    <div class="ladder">
+      <div class="band core">
+        <div class="band-h"><span class="nm">Core</span><span class="when">funded to sufficiency before anything else gets funded at all</span></div>
+        <div class="band-b">
+          <div class="row"><b>Paid social and paid search</b> — the demand engine</div>
+          <div class="row"><b>Outbound</b> — carries the quarter</div>
+          <div class="row"><b>Creative production</b> — the throughput constraint on everything paid</div>
+          <div class="row"><b>Measurement</b> — the thing that makes the other three legible</div>
+        </div>
+      </div>
+
+      <div class="band">
+        <div class="band-h"><span class="nm">Second ring</span><span class="when">funded once core is at sufficiency</span></div>
+        <div class="band-b">
+          <div class="row"><b>AI search visibility / citation placement.</b> The exception worth funding early anyway: cost is small, it compounds, and leverage per dollar is the highest on this list.</div>
+          <div class="row"><b>Event logistics.</b> Driven by the calendar, not by strategy. ICP Elite happens whether we fund support or not; the question is only what it costs us in internal bandwidth.</div>
+          <div class="row"><b>Web and conversion build.</b> Gated by traffic volume. Funding a testing program before paid scales is optimizing an empty room.</div>
+        </div>
+      </div>
+
+      <div class="band def">
+        <div class="band-h"><span class="nm">Deferred</span><span class="when">not now</span></div>
+        <div class="band-b">
+          <div class="row">Technical SEO architecture</div>
+          <div class="row">Brand and visual identity</div>
+          <div class="row">High-volume thought leadership</div>
+        </div>
+      </div>
+    </div>
+
+    <p><strong>A line is at sufficiency</strong> when adding money stops moving its number — not when it hits a budget figure.</p>
+
+    <div class="callout">
+      <div class="eyebrow">The test for adding a line</div>
+      <p>Does it move one of the core four's numbers, or does it produce its own number we've explicitly decided matters? If neither, it's a line item surviving on plausibility.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Tier 1 — buy the best, buy it fast</h2>
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--ink-3)">Performance SLA · monthly review · short kill clause · no commitment past 120 days</p>
+
+    <div class="vends">
+      <div class="vend">
+        <div class="vend-h"><h3>Paid search — Big Leap</h3><span class="chip chip-a">Contracted</span></div>
+        <p>Scoped to PPC only. Deliberately not bundled with the SEO, content, or CRO services they also sell. One leg, one number. That scope is why they staff it properly.</p>
+      </div>
+
+      <div class="vend">
+        <div class="vend-h"><h3>Paid social</h3><span class="chip chip-n">Vendor TBD</span></div>
+        <p>Same tier, separate vendor. Meta is a distinct buying discipline from search — different creative dependency, different optimization loop.</p>
+        <div class="now"><b>Current</b><span>Troy owns the relaunch internally; the Forge creative package is what makes real testing possible on this line.</span></div>
+      </div>
+
+      <div class="vend">
+        <div class="vend-h"><h3>Outbound email infrastructure and deliverability — C-17</h3><span class="chip chip-a">Contracted</span></div>
+        <p>Runs their own sending infrastructure, paid per approved and held meeting, no payment for no-shows. Correct shape already: single function, performance-priced. Suppression discipline and domain health monitoring stay with us.</p>
+      </div>
+
+      <div class="vend">
+        <div class="vend-h"><h3>Measurement and attribution</h3><span class="chip chip-k">Not outsourced</span></div>
+        <p>Named at this tier because it carries Tier 1 stakes — if a vendor owns the scoreboard, every SLA in this document is unenforceable.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Tier 2 — buy capacity, not genius</h2>
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--ink-3)">Priced per unit · measured on volume shipped · no commitment past 180 days</p>
+
+    <div class="vends">
+      <div class="vend">
+        <div class="vend-h"><h3>Creative production — Forge</h3><span class="chip chip-a">Contracted</span></div>
+        <p>Paid media can't learn faster than creative can ship. This is a volume function: concepts per week, variants live, kill rate. Not a taste function.</p>
+        <div class="now"><b>Current</b><span>20 videos in 7 days. That cadence is the SLA.</span></div>
+      </div>
+
+      <div class="vend">
+        <div class="vend-h"><h3>Event logistics</h3><span class="chip chip-n">Capacity buy</span></div>
+        <p>We can tell exactly what a bad event looks like and we're creative enough to run great ones — the logistics are a bandwidth vacuum. Outsourced for capacity, not expertise. We keep the guest list, the message, and the follow-up; they keep the booth, shipping, and run of show.</p>
+        <div class="now"><b>Current</b><span>ICP Elite, San Antonio, Sept 22–23, run internally.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Tier 3 — expertise for a defined purpose</h2>
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--ink-3)">Defined scope · defined finish · project fee</p>
+
+    <div class="vends">
+      <div class="vend">
+        <div class="vend-h"><h3>AI search visibility (GEO)</h3><span class="chip chip-a">Tool + operator, not an agency</span></div>
+        <p>LLMs mostly cite third-party sources rather than vendor sites — review platforms, community, industry publications — and the mix differs by model. The fast path into an answer is being named inside sources the models already trust, not becoming a trusted source ourselves.</p>
+        <p><strong>The engagement:</strong> a citation-tracking platform (Profound or an equivalent at better commercial terms) as owned infrastructure to build the target list from our money prompts, plus a placement consultant on a defined engagement, measured in inclusions landed in target-list sources. This is mention placement, not link building — a link from a cited page does nothing if we aren't named in the passage being read.</p>
+        <div class="now"><b>Measured by</b><span>Citation share on our money prompts, tracked weekly. Rare for this function to produce a number a non-expert can read, which matters given everything above turns on detectability.</span></div>
+      </div>
+
+      <div class="vend">
+        <div class="vend-h"><h3>Technical SEO architecture</h3><span class="chip chip-n">Deferred</span></div>
+        <p>Site structure, schema, retrievability. One-time engagement, carried internally afterward. Separate from the placement work above, and probably a different operator.</p>
+      </div>
+
+      <div class="vend">
+        <div class="vend-h"><h3>Web and conversion</h3><span class="chip chip-n">Paced by Tier 1</span></div>
+        <p>Anyone can tell a landing page is garbage, build three versions, and test in parallel. Testing velocity is gated by traffic volume, so it's paced by Tier 1 performance. Build it right once; run optimization in-house.</p>
+      </div>
+
+      <div class="vend">
+        <div class="vend-h"><h3>Brand and visual identity</h3><span class="chip chip-n">Deferred</span></div>
+        <p>Genuine expertise, episodic need, shared execution.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Not outsourced at any tier</h2>
+    <div class="callout">
+      <div class="eyebrow">Held internally</div>
+      <p class="hero">Positioning, messaging, ICP definition, and the measurement layer.</p>
+      <p>Vendors execute against a definition of the customer and get graded on a scoreboard we own. If they hold either one, nothing above is enforceable.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Open, with the constraint named</h2>
+    <div class="vend">
+      <div class="vend-h"><h3>High-volume original thought leadership</h3><span class="chip chip-k">No vendor shape</span></div>
+      <p>The shops producing content at a ceiling we can't match internally price above what makes sense at our stage. The shops whose pipeline <em>is</em> the moat won't sell us the pipeline. There's no available vendor shape here — which is why the GEO line is scoped as placement into already-cited sources rather than production.</p>
+      <p>Revisit when either the budget or the internal capacity changes.</p>
+    </div>
+  </section>
+
+  <div class="closer">
+    <div class="eyebrow">The through-line</div>
+    <p class="big">Every line is bought against a number we can read, on a clock short enough to act on.</p>
+    <p>Tiers decide how we buy. The funding order decides what we buy. One function per vendor makes the result attributable — and the scoreboard stays ours, so the whole thing stays enforceable.</p>
+  </div>
+
+</div>
+</body>
+</html>
